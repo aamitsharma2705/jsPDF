@@ -58,6 +58,8 @@ module.exports = (config) => {
       'plugins/annotations.js',
       'plugins/split_text_to_size.js',
       'plugins/standard_fonts_metrics.js',
+      'plugins/customfonts.js',
+      'plugins/vfs.js',
       'plugins/autoprint.js',
       'plugins/addhtml.js',
       'plugins/viewerpreferences.js',
@@ -66,7 +68,7 @@ module.exports = (config) => {
         pattern: 'tests/**/*.spec.js',
         included: true
       }, {
-        pattern: 'tests/**/reference/*.pdf',
+        pattern: 'tests/**/reference/*.*',
         included: false,
         served: true
       }
