@@ -161,7 +161,7 @@
 			separator_length = 0,
 			current_word_length = 0,
 			word, widths_array, words = text.split(' '),
-			spaceCharWidth = getCharWidthsArray(' ', options)[0],
+			spaceCharWidth = getCharWidthsArray.call(this,' ', options)[0],
 			i, l, tmp, lineIndent, postProcess
 
 		if (options.lineIndent === -1) {
@@ -194,7 +194,7 @@
 				word = word.substr(1);
 				force = 1;
 			}
-			widths_array = getCharWidthsArray(word, options)
+			widths_array = getCharWidthsArray.call(this, word, options)
 			current_word_length = getArraySum(widths_array)
 
 			if (line_length + separator_length + current_word_length > maxlen || force) {
@@ -333,7 +333,7 @@
 		var i, l, output = []
 		for (i = 0, l = paragraphs.length; i < l; i++) {
 			output = output.concat(
-				splitParagraphIntoLines(
+				splitParagraphIntoLines.call(this,
 					paragraphs[i], fontUnit_maxLen, newOptions
 				)
 			)
