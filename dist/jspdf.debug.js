@@ -129,8 +129,8 @@ var asyncGenerator = function () {
 
 /** @preserve
  * jsPDF - PDF Document creation from JavaScript
- * Version 1.3.5 Built on 2017-12-07T09:09:29.220Z
- *                           CommitID 6c3cfedfeb
+ * Version 1.3.5 Built on 2017-12-07T10:09:47.858Z
+ *                           CommitID d5752a6c7b
  *
  * Copyright (c) 2010-2016 James Hall <james@parall.ax>, https://github.com/MrRio/jsPDF
  *               2010 Aaron Spike, https://github.com/acspike
@@ -8987,7 +8987,7 @@ AcroForm.internal.setBitPosition = function (variable, position, value) {
 		    word,
 		    widths_array,
 		    words = text.split(' '),
-		    spaceCharWidth = getCharWidthsArray(' ', options)[0],
+		    spaceCharWidth = getCharWidthsArray.call(this, ' ', options)[0],
 		    i,
 		    l,
 		    tmp,
@@ -9024,7 +9024,7 @@ AcroForm.internal.setBitPosition = function (variable, position, value) {
 				word = word.substr(1);
 				force = 1;
 			}
-			widths_array = getCharWidthsArray(word, options);
+			widths_array = getCharWidthsArray.call(this, word, options);
 			current_word_length = getArraySum(widths_array);
 
 			if (line_length + separator_length + current_word_length > maxlen || force) {
@@ -9161,7 +9161,7 @@ AcroForm.internal.setBitPosition = function (variable, position, value) {
 		    l,
 		    output = [];
 		for (i = 0, l = paragraphs.length; i < l; i++) {
-			output = output.concat(splitParagraphIntoLines(paragraphs[i], fontUnit_maxLen, newOptions));
+			output = output.concat(splitParagraphIntoLines.call(this, paragraphs[i], fontUnit_maxLen, newOptions));
 		}
 
 		return output;
